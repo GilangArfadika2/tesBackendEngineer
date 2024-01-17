@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  # MariaDB container
+  mariadb:
+    image: mariadb:10.5
+    container_name: mariadb_container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel_backend
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - laravel_network
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+
+networks:
+  laravel_network:
+
+volumes:
+  mariadb_data:

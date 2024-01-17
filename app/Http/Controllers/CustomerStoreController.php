@@ -108,7 +108,9 @@ class CustomerStoreController extends Controller
             $customerStore->address->each(function ($address) {
                 $address->delete();
             });
+
             $customerStore->delete();
+            
             return response()->json([
                 'message' => 'Customer Store Telah dihapus',
                 'status' => 200,
